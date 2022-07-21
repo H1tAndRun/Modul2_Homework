@@ -40,7 +40,6 @@ public class Task1 {
         task2();
         System.out.println();
         task3();
-
     }
 
     public static void task1(){
@@ -71,6 +70,9 @@ public class Task1 {
         System.out.println(lists.stream().anyMatch(x->x.stream().reduce((sum,num)->sum+num).orElse(0)==12));
 
 
+
+    }
+    public static void dwdw(){
 
     }
 }
