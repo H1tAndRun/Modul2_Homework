@@ -68,12 +68,6 @@ public class Task1 {
         // равную 12
         List<List<Integer>> lists = List.of(List.of(1, 2), List.of(3, 4, 5), List.of());
         System.out.println(lists.stream().anyMatch(x->x.stream().reduce((sum,num)->sum+num).orElse(0)==12));
-
-
-
-    }
-    public static void dwdw(){
-
     }
 }
 
