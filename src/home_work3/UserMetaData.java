@@ -14,10 +14,9 @@ public class UserMetaData {
         this.count = count;
         checkAnnotation(this);
     }
-
-   public void GetSuperName(String prefix){
-       System.out.println(prefix);
-
+    @GetMetaData
+   public void GetSuperName(String prefix) throws InterruptedException {
+       Thread.sleep(1000);
    }
     private static void checkAnnotation(UserMetaData userMetaData){
         try {
@@ -40,13 +39,16 @@ public class UserMetaData {
 
             if (method.isAnnotationPresent(GetMetaData.class)) {
                 long start = System.currentTimeMillis();
+                method.invoke(userMetaData,"Hello");
                 long end = System.currentTimeMillis();
-                System.out.print("Time is run method = " + (double) (start - end));
+                System.out.print("Time is run method = " + (double) (end - start));
             }
         }catch (IllegalAccessException e){
             e.printStackTrace();
         }catch (NoSuchMethodException e){
             e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
     }
 }
